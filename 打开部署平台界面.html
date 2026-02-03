@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打开部署平台界面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1890ff 0%, #36cfc9 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .status {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .status-value {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .status-success {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+        
+        .status-running {
+            background: #e6f7ff;
+            color: #1890ff;
+            border: 1px solid #91d5ff;
+        }
+        
+        .links {
+            padding: 40px 30px;
+        }
+        
+        .link-button {
+            display: block;
+            background: linear-gradient(135deg, #1890ff 0%, #36cfc9 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(24, 144, 255, 0.3);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(24, 144, 255, 0.4);
+        }
+        
+        .link-button.secondary {
+            background: linear-gradient(135deg, #f5222d 0%, #fa541c 100%);
+            box-shadow: 0 8px 25px rgba(245, 34, 45, 0.3);
+        }
+        
+        .link-button.secondary:hover {
+            box-shadow: 0 12px 30px rgba(245, 34, 45, 0.4);
+        }
+        
+        .instructions {
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #1890ff;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            padding: 20px;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .test-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .test-link {
+            display: block;
+            padding: 12px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        
+        .test-link:hover {
+            background: #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .test-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 部署平台管理界面</h1>
+            <p>现代化、可视化的服务部署管理平台</p>
+        </div>
+        
+        <div class="status">
+            <div class="status-item">
+                <div class="status-name">React管理界面</div>
+                <div class="status-value status-running">运行中</div>
+            </div>
+            <div class="status-item">
+                <div class="status-name">API服务器</div>
+                <div class="status-value status-success">健康</div>
+            </div>
+            <div class="status-item">
+                <div class="status-name">分布式服务</div>
+                <div class="status-value status-success">在线</div>
+            </div>
+        </div>
+        
+        <div class="links">
+            <a href="http://localhost:3001" class="link-button" target="_blank">
+                🔗 点击这里打开部署平台管理界面
+            </a>
+            
+            <a href="http://182.92.31.155" class="link-button secondary" target="_blank">
+                🌐 访问真实分布式服务
+            </a>
+            
+            <div class="test-links">
+                <a href="http://localhost:3002/api/health" class="test-link" target="_blank">
+                    🩺 测试API健康状态
+                </a>
+                <a href="http://localhost:3002/api/servers" class="test-link" target="_blank">
+                    🖥️ 查看服务器列表
+                </a>
+                <a href="http://182.92.31.155:3000" class="test-link" target="_blank">
+                    ☁️ 阿里云服务
+                </a>
+                <a href="http://152.136.16.77:3000" class="test-link" target="_blank">
+                    ☁️ 腾讯云服务
+                </a>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 使用说明：</h3>
+            <ol>
+                <li><strong>点击上方蓝色按钮</strong>打开React管理界面</li>
+                <li>在界面中你可以：
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>📊 查看系统仪表盘和监控数据</li>
+                        <li>🖥️ 管理服务器状态和资源</li>
+                        <li>🚀 执行一键部署操作</li>
+                        <li>📈 查看性能图表和日志</li>
+                    </ul>
+                </li>
+                <li>所有服务都已启动并运行正常</li>
+                <li>界面支持响应式设计，可在手机和平板上使用</li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            <p>分布式服务部署平台 © 2026 - 版本 1.0.0</p>
+            <p style="margin-top: 5px;">React界面: http://localhost:3001 | API服务: http://localhost:3002</p>
+        </div>
+    </div>
+    
+    <script>
+        // 自动检查服务状态
+        function checkServices() {
+            // 检查API服务
+            fetch('http://localhost:3002/api/health')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('✅ API服务正常:', data.status);
+                    }
+                })
+                .catch(error => {
+                    console.log('⚠️ API服务检查中...');
+                });
+            
+            // 检查React界面
+            fetch('http://localhost:3001')
+                .then(response => {
+                    if (response.ok) {
+                        console.log('✅ React界面正常');
+                    }
+                })
+                .catch(error => {
+                    console.log('⚠️ React界面检查中...');
+                });
+        }
+        
+        // 页面加载时检查
+        window.addEventListener('load', checkServices);
+        
+        // 每30秒检查一次
+        setInterval(checkServices, 30000);
+        
+        // 添加点击效果
+        document.querySelectorAll('.link-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

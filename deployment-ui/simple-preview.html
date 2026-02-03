@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分布式服务部署平台 - 界面预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1890ff 0%, #36cfc9 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #1890ff;
+        }
+        
+        .card h3 {
+            color: #1890ff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h3 i {
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .features {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li i {
+            color: #52c41a;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .status-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1890ff;
+            margin: 10px 0;
+        }
+        
+        .status-label {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .server-list {
+            margin-top: 20px;
+        }
+        
+        .server-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .server-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .server-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .status-healthy {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #1890ff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #40a9ff;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 分布式服务部署平台</h1>
+            <p>现代化、可视化的服务部署管理界面</p>
+        </div>
+        
+        <div class="content">
+            <div class="card">
+                <h3><i>📊</i> 仪表盘</h3>
+                <p>实时监控系统状态和关键指标，可视化展示性能数据。</p>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <div class="status-value">2</div>
+                        <div class="status-label">运行服务器</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-value">100%</div>
+                        <div class="status-label">健康状态</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-value">156ms</div>
+                        <div class="status-label">平均响应</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-value">5</div>
+                        <div class="status-label">今日部署</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><i>🖥️</i> 服务器管理</h3>
+                <p>管理所有服务器状态，监控资源使用情况。</p>
+                <div class="server-list">
+                    <div class="server-item">
+                        <div class="server-name">alijack (阿里云)</div>
+                        <div class="server-status status-healthy">健康 ✓</div>
+                    </div>
+                    <div class="server-item">
+                        <div class="server-name">tenjack (腾讯云)</div>
+                        <div class="server-status status-healthy">健康 ✓</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">查看详情</a>
+                    <a href="#" class="btn btn-secondary">刷新状态</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><i>⚡</i> 部署管理</h3>
+                <p>一键部署、版本管理和快速回滚功能。</p>
+                <ul class="features">
+                    <li><i>✓</i> 可视化部署流程</li>
+                    <li><i>✓</i> 自动版本控制</li>
+                    <li><i>✓</i> 一键回滚机制</li>
+                    <li><i>✓</i> 部署历史记录</li>
+                </ul>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">开始部署</a>
+                    <a href="#" class="btn btn-secondary">查看历史</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><i>📈</i> 系统监控</h3>
+                <p>实时性能监控和告警通知系统。</p>
+                <ul class="features">
+                    <li><i>📊</i> 实时性能图表</li>
+                    <li><i>🔔</i> 智能告警通知</li>
+                    <li><i>📋</i> 资源使用趋势</li>
+                    <li><i>📱</i> 移动端支持</li>
+                </ul>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">查看监控</a>
+                    <a href="#" class="btn btn-secondary">告警设置</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><i>🔧</i> 技术栈</h3>
+                <p>基于现代前端技术栈构建。</p>
+                <ul class="features">
+                    <li><i>⚛️</i> React 18 + TypeScript</li>
+                    <li><i>🎨</i> Ant Design 5 UI组件库</li>
+                    <li><i>📊</i> Recharts 数据可视化</li>
+                    <li><i>⚡</i> Vite 构建工具</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3><i>🚀</i> 快速开始</h3>
+                <p>立即启动部署平台管理界面。</p>
+                <div class="buttons">
+                    <a href="http://localhost:3001" class="btn btn-primary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">启动React界面</a>
+                    <a href="http://localhost:3002/api/health" class="btn btn-secondary">测试API服务</a>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #999;">
+                    API服务器: http://localhost:3002<br>
+                    前端界面: http://localhost:3001
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>分布式服务部署平台 © 2026 - 版本 1.0.0 | 当前服务状态: <span style="color: #52c41a; font-weight: bold;">运行正常 ✓</span></p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                访问真实服务: <a href="http://182.92.31.155" style="color: #1890ff;">http://182.92.31.155</a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // 动态更新状态
+        function updateStatus() {
+            fetch('http://localhost:3002/api/health')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('API服务状态:', data.status);
+                    }
+                })
+                .catch(error => {
+                    console.log('API服务连接中...');
+                });
+        }
+        
+        // 每10秒更新一次状态
+        setInterval(updateStatus, 10000);
+        updateStatus();
+        
+        // 添加点击效果
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
